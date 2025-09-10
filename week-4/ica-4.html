@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://use.typekit.net/rca4igs.css">
     <style>
         html {
-            font-family: "tangier", sans-serif;
-            font-weight: 500;
-            font-style: normal;
+        font-family: "dunhill-script", sans-serif;
+        font-weight: 600;
+        font-style: normal;
         }
 
 
@@ -24,16 +24,16 @@
         }
 
         #box1 {
-            background-color: #7F055F;
+            background-color: #A82E5B;
         }
         #box2 {
-            background-color: #6C9A8B;
+            background-color: #6A7FDB;
         }
         #box3 {
-            background-color: #C6B9CD;
+            background-color: #1A5E63;
         }
         #box4 {
-            background-color: #0C437E;
+            background-color: #309574;
         }
 
         p{
@@ -58,24 +58,44 @@
 
         a{
             text-decoration: none;
-            color: #0C437E;
+            color: #A82E5B;
         }
+
+        .button{
+             background-color: #A82E5B;
+             border: none;
+             color: white; 
+             padding: 16px 32px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font: size 16px;
+             margin: 4px 2px;
+             transition-duration: 0.4s;
+             cursor: pointer;
+            }
+        .button:hover {
+            background-color: #6A7FDB; 
+            color: black;
+        }
+            
+
         a:hover {
             text-decoration: underline;
-            color: #7F055F; 
+            color: #6A7FDB; 
         }
 
         a:visited {
-            color:#C6B9CD
+            color:#1A5E63;
         }
     </style>
 
     <style>
          .rdp {
             --rdp-cell-size: 40px;
-            --rdp-accent-color: #0000ff;
+            --rdp-accent-color: #000000;
             --rdp-background-color:#e7edff;
-            --rdp-accent-color-dark: #3003e1;
+            --rdp-accent-color-dark: #000000;
             --rdp-background-color-dark: #180270;
             --rdp-outline: 2px solid var(--rdp-accent-color); /*Outline border for focused elements */
             --rdp-outline-selected: 2px solid rgba(0,0,0,0.75); /*
@@ -83,14 +103,14 @@
             margin: lem;
          }
         </style>
-
 </head>
+
 <body>
     <div class="flex">
-        <div class="color-box" id="box1">1</div>
-        <div class="color-box" id="box2">2</div>
-        <div class="color-box" id="box3">3</div>
-        <div class="color-box" id="box4">4</div>
+        <div class="color-box" id="box1">#A82E5B</div>
+        <div class="color-box" id="box2">#6A7FDB</div>
+        <div class="color-box" id="box3">#1A5E63</div>
+        <div class="color-box" id="box4">#309574</div>
     </div>
 
     <h1>This is heading 1</h1>
@@ -99,7 +119,10 @@
     <p>This is paragraph text</p>
     <p class ="small-text">This is small text</p>
     <p>
-        <a href="#">This is a link</a>
+        <a href="ica-4.html">This is a link</a>
     </p>
+    <div>
+        <button class="button">This is a button!</button>
+    </div>
 </body>
 </html>
