@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://use.typekit.net/vxg0gza.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rca4igs.css">
     <style>
         html {
-            font-family: "proxima-nova", sans-serif;
+            font-family: "tangier", sans-serif;
+            font-weight: 500;
+            font-style: normal;
         }
+
+
+        .flex {
+            display:flex;
+            flex-direction:row;
+        }
+
         .color-box{
-            height:75px;
-            width:75px;
+            height:150px;
+            width:150px;
         }
+
         #box1 {
             background-color: #7F055F;
         }
@@ -27,23 +37,23 @@
         }
 
         p{
-            font-size: 16px;
-        }
-
-        .small-text {
-            font-size: 12px;
-        }
-
-        h3 {
-            font-size: 12px;
-        }
-
-        h2{
             font-size: 20px;
         }
 
-        h1{
+        .small-text {
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        h2{
             font-size: 24px;
+        }
+
+        h1{
+            font-size: 30px;
         }
 
         a{
@@ -59,19 +69,21 @@
             color:#C6B9CD
         }
     </style>
+
     <style>
-        .rdp {
+         .rdp {
             --rdp-cell-size: 40px;
             --rdp-accent-color: #0000ff;
             --rdp-background-color:#e7edff;
             --rdp-accent-color-dark: #3003e1;
             --rdp-background-color-dark: #180270;
-            --rdp-outline: 2px solid var(var(--rdp-accent-color); /*Outline border for focused elements */
+            --rdp-outline: 2px solid var(--rdp-accent-color); /*Outline border for focused elements */
             --rdp-outline-selected: 2px solid rgba(0,0,0,0.75); /*
-        Outline border for focused _and_ selected elements */ 
+            Outline border for focused _and_ selected elements */ 
             margin: lem;
-        }
-    </style>
+         }
+        </style>
+
 </head>
 <body>
     <div class="flex">
@@ -86,6 +98,8 @@
     <h3>This is heading 3</h3>
     <p>This is paragraph text</p>
     <p class ="small-text">This is small text</p>
-    <p> == $0</p>
+    <p>
+        <a href="#">This is a link</a>
+    </p>
 </body>
 </html>
