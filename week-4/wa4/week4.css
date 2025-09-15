@@ -1,16 +1,108 @@
+/* Color Palette Options */
+/* background-color: #F4EAD5;
+    /* background-color: #2E170F; */
+    /* background-color: #03312E; */
+    /* background-color: #6A71AF; */
+    /* background-color: #CACCE2; */
+    /* background-color: #A0405F; */
+
 body {
-
-
+    background-color: #CACCE2;
 }
-
 p {
-    color:#095256;
-    padding: 16px;
+    color:#2E170F;
 }
 
 .myname{
-    color: #86A873;
+    color: #A0405F;
+    size: 56px;
+    text-align: center;
+    font-family: "kari-display-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
+.my-traits{
+    color: #2E170F;
+    size: 24px;
+    padding: -12px;
+    text-align: center;
+    font-family: "gimlet-display", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.contact-info{
+    color:#2E170F;
+    text-align: center;
+    size: 56px;
+    font-family: "gimlet-display", serif;
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+nav{
+    text-align:center;
+    size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: gastromond, sans-serif;
+    font-weight: 400;
+    font-style: italic; 
+}
+
+.introduction{
+    color:#03312E;
+    text-align: center;
+    font-family: "gimlet-display", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+.resume-info{
+    color:#03312E;
+    text-align: center;
+    font-family: "gimlet-display", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+.button{
+            background-color: #63A46C;
+            border: none;
+            color: white; 
+            padding: 24px 24px;
+            text-align: center;
+            text-decoration: none;
+            text-decoration-color:#63A46C;
+            display: inline-block;
+            size:16px;
+            margin-right:20px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: gastromond, sans-serif;
+            font-weight: 400;
+            font-style: italic; 
+            }
+        .button:hover {
+            background-color: #A0405F; 
+            color:#2E170F;
+        }
+
+a:visited{
+    color: #03312E;
+}
+
+a:hover{
+    color: #2E170F;
+}
+
+
+
+
 
 
 
