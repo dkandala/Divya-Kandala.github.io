@@ -63,11 +63,13 @@
       alert("this is an alert");
       if (info == false){
         details.style.display = 'block';
+        expandBtn.textContent = "-";
         info = true;
       }
       else{
         details.style.display = 'none';
         info = false;
+        expandBtn.textContent = "+"
       }
     }
   </script>
