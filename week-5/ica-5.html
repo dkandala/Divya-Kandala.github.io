@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In-Class-5</title>
     <style>
-        .card-header{
+
+      .card-header{
             display:flex;
             gap:2rem;
             justify-content: center;
             align-items: center;
             font-family: helvetica, sans-serif;
             background-color: lightpink;
-        }
-        .card-content{
+      }
+      .card-content{
             display:none;
-        }
-    .card{
+      }
+      .card{
         flex: 1 1 300px;
         background: white;
         border-radius: 10px;
         padding: 1.5rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }    
+      }    
+    .details {
+      display: none;
+    }
 
-    h3{
-      text-align: center;
+      h3{
+        text-align: center;
     }
 
     button{
@@ -65,11 +69,10 @@
         details.style.display = 'block';
         expandBtn.textContent = "-";
         info = true;
-      }
-      else{
+      } else{
         details.style.display = 'none';
         info = false;
-        expandBtn.textContent = "+"
+        expandBtn.textContent = "-"
       }
     }
   </script>
