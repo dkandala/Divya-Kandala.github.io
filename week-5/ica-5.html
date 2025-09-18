@@ -23,6 +23,17 @@
         padding: 1.5rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }    
+
+    h3{
+      text-align: center;
+    }
+
+    button{
+      height: 2rem;
+      width:  10rem;
+      border-radius: 12%;
+      border: 2 px palevioletred;
+    }
     </style>
 
 </head>
@@ -39,6 +50,27 @@
       <p>Contact: garden@community.org</p>
     </div>
   </div>
+  <script>
+    let info = false;
+
+    const expandBtn = document.querySelector('.expand-btn');
+    const details = document.querySelector('.card-content');
+
+    expandBtn.addEventListener('click',showInfo);
+
+    function showInfo(){
+      console.log("hi!");
+      alert("this is an alert");
+      if (info == false){
+        details.style.display = 'block';
+        info = true;
+      }
+      else{
+        details.style.display = 'none';
+        info = false;
+      }
+    }
+  </script>
 </div>    
 </body>
 </html>
