@@ -54,25 +54,25 @@
     </div>
   </div>
   <script>
-    let info = false;
+    const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
 
-    const expandBtn = document.querySelector('.expand-btn');
-    const details = document.querySelector('.card-content');
+var menu_shown = false;
 
-    expandBtn.addEventListener('click',showInfo);
+  function showMenu(){
+    var shown=navMenu.classList.toggle("show");
+    navMenu.classList.toggle("hide");
 
-    function showInfo(){
-      console.log("hi!");
-      if (info == false){
-        details.style.display = 'block';
-        expandBtn.textContent = "-";
-        info = true;
-      } else{
-        details.style.display = 'none';
-        info = false;
-        expandBtn.textContent = "+"
-      }
+    if (shown) {
+        navToggle.setAttribute("aria-expanded", "true");
     }
+
+    else {
+        navToggle.setAttribute("aria-expanded", "false");
+    }
+}
+
+navToggle.addEventListener('click', showMenu);
   </script>
 </div>    
 </body>
