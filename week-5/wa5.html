@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="week5.css">
+    <title>Telugu Student Association</title>
+</head>
+<body>
+    <nav class="main-nav">
+    <div class="nav-brand">Telugu Student Association</div>
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class = "hamburger"></span>
+        </button>
+  <ul class="nav-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#resources">Meet The Team</a>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact Us!</a>
+  </ul>
+</nav>
+
+<p> Welcome to TSA!</p>
+
+<p>We are the Telugu Student Association and focus on sharing Telugu culture around CU to non-native speakers/native speakers.
+<br>Our goal is to share Telugu culture and have a space for people to come and enjoy fun activites while learning more about Telugu culture.
+</p>
+
+<p>Check out our events page to see what's going on!</p>
+
+<script>
+
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+var menu_shown = false;
+
+function showMenu(){
+    var shown=navMenu.classList.toggle("show");
+    navMenu.classList.toggle("hide");
+
+    if (shown) {
+        navToggle.setAttribute("aria-expanded", "true");
+    }
+
+    else {
+        navToggle.setAttribute("aria-expanded", "false");
+    }
+}
+
+
+navToggle.addEventListener("click", showMenu);
+</script>
+
+</body>
+</html>
