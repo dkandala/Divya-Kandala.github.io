@@ -105,7 +105,7 @@ a {
   height:40px;
 }
 
-/* wanted to add a hover state/visited state to the links */
+
 a:visited {
     background-color: blueviolet;
     color: white;
