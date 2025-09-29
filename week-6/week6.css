@@ -40,6 +40,14 @@ p {
     font-weight: bold;
     
 }
+
+h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: midnightblue;
+    font: size 1000px;;
+    font-weight: bold;
+    font-style:italic
+}
 .nav-menu{
     display: flex;
     gap: 0.8em;
@@ -127,7 +135,7 @@ p {
     grid-template-rows: 1fr;
     grid-template-areas:
         'event1 event2 event3';
-    margin: 20px;
+    margin: 24px;
 }
 
 .event {
@@ -136,32 +144,48 @@ p {
     padding: 16px;
 
 }
-
 .event h2 {
     text-align: center;
 }
-
 .event p {
     text-align: center;
 }
-
 .event1 {
     grid-area: event1;
 }
-
 .event2{
     grid-area: event2;
 }
-
 .event3{
     grid-area: event3;
 }
 
-
-@media (max-width: 768px) {
-
+.event-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
 }
 
-@media (max-width: 439px) {
 
+    
+.event-box {
+  background-color: cornflowerblue;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-weight: bold;
 }
+
+
+.events-blurb{
+    font-family:'Courier New', Courier, monospace;
+    font-size:large;
+    color:darkblue;
+    font-weight: bold;
+    text-align:center;
+}
+

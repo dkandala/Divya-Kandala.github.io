@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="week6.css">
+    <title>Events</title>
+
+    
+</head>
+<body>
+    <nav class="main-nav">
+    <div class="nav-brand">Telugu Student Association</div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span class ="hamburger"></span>
+      <span class ="hamburger"></span>
+      <span class ="hamburger"></span>
+    </button>
+  <ul class="nav-menu">
+    <li><a href="wa6.html">Home</a></li>
+    <li><a href="#resources">Meet The Team</a>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact Us!</a>
+  </ul>
+</nav> 
+
+<section>
+    <div class = "events-blurb">
+        <h3>Check out all our events from upcoming events & meetings to all our past events!</h3>
+    </div>
+</section>
+
+<main>
+    <div class="event-gallery-container">
+        <section class="event-gallery-grid">
+            <div class="event-box" data-category="Upcoming-Events">
+                <h2>Trivia Night</h2>
+                <p><em>Time:</em> 6:30-7:30 PM <br><em>Date:</em> October 2nd <br><em>Location:</em> ECCR 245</p>
+            </div>
+
+            <div class= "event-box" data-category="Upcoming-Events">
+                <h2>Pictionary</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> October 14th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Past-Events">
+                <h2>Bingo Night</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> September 25th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Upcoming-Events">
+                <h2>Tellestrations</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> November 4th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Past-Events">
+                <h2>Biryani and Blockbusters</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> September 10th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Upcoming-Events">
+                <h2>Tote Bag Painting</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> November 12th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Past-Events">
+                <h2>Field Day</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> September 20th<br><em>Location:</em> ECCR 155</p>
+            </div>
+            <div class = "event-box" data-category="Past-Events">
+                <h2>Samosas and Cinema!</h2>
+                <p><em>Time:</em> 6:30-7:30 PM<br><em>Date:</em> September 4th<br><em>Location:</em> ECCR 155</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const event1 = document.querySelector('.event1');
+const eventBoxes = document.querySelectorAll(".event-box");
+
+let category = ""
+let color_changed = false
+var menu_shown = false;
+
+function showMenu(){
+    var shown=navMenu.classList.toggle("show");
+    navMenu.classList.toggle("hide");
+
+    if (shown) {
+        navToggle.setAttribute("aria-expanded", "true");
+    }
+
+    else {
+        navToggle.setAttribute("aria-expanded", "false");
+    }
+}
+
+
+
+function handleKeyFilter(e) {
+  // if u is pressed then show upcoming events 
+  if (e.key === "u") category = "Upcoming-Events";
+  // if p is pressed only past events show 
+  else if (e.key === "p") category = "Past-Events";
+  // if any key is pressed other than "p" or "u" then default to all events 
+  else category = "All"; 
+
+  
+  eventBoxes.forEach(box => {
+    const match = category === "All" || box.dataset.category === category;
+    // hide the boxes if they don't match
+    box.style.display = match ? "block" : "none";
+  });
+}
+
+
+document.addEventListener("keydown", handleKeyFilter);
+addEventListener("keydown", (event) => {changeBgCol(event)});
+navToggle.addEventListener("click", showMenu);
+</script>
+
+
+</body>
+</html>
