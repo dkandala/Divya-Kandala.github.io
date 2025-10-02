@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="week6.css">
+    <script src="wa7.js"></script>
     <title>Telugu Student Association</title>
 </head>
 <body>
@@ -47,57 +48,19 @@
       <p>details to come</p>
     </section>
   </div>
-
 </main>
 
-<script>
-
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-const event1 = document.querySelector('.event1');
-
-// load on page visit 
-const userLang = localStorage.getItem('userLanguage') || 'en';
-
-let color_changed = false
-var menu_shown = false;
-
-function showMenu(){
-    var shown=navMenu.classList.toggle("show");
-    navMenu.classList.toggle("hide");
-
-    if (shown) {
-        navToggle.setAttribute("aria-expanded", "true");
-    }
-
-    else {
-        navToggle.setAttribute("aria-expanded", "false");
-    }
-}
-
-function changeBgCol(event){
-  if (event.key == "c") {
-    if (color_changed == false){
-      event1.style.backgroundColor = "#79B6F6";
-      color_changed = true;
-    }
-    else {
-      event1.style.backgroundColor = "cornflowerblue";
-      color_changed = false;
-    }
-  }
-}
-
-// Save language choice 
-function setLanguage(lang) {
-  localStorage.setItem('userLanguage',lang);
-  // Update page content based on language 
-}
+<footer class = "main-footer">
+  <div class="text-sizes">
+    <h2>Text size:</h2>
+    <button id="small-text">Small</button>
+    <button id="med-text">Medium</button>
+    <button id="large-text">Large</button>
+    <button id="clear-preferences">Clear Preferences</button>
+  </div>
+</footer>
 
 
-addEventListener("keydown", (event) => {changeBgCol(event)});
-navToggle.addEventListener("click", showMenu);
-</script>
 
 </body>
 </html>
