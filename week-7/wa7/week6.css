@@ -242,14 +242,7 @@ h2 {
 .event p {
     text-align: center;
 }
-.event1 {
-    grid-area: event1;
-}
-.event2{
-    grid-area: event2;
-}
-.event3{
-    grid-area: event3;
+
 }
 .main-footer {
     background-color:cornflowerblue;
