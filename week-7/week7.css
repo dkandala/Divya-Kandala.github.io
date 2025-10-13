@@ -20,6 +20,18 @@ a {
   font-size: 18px;
 }
 
+.contact-section{
+    text-align: center;
+    margin: 24px;
+    padding: 24px;
+    background-color: cornflowerblue;
+    border-radius: 12px;
+    font-family:'Courier New', Courier, monospace;
+    font-size:large;
+    color:darkblue;
+    font-weight: bold;
+}
+
 /* wanted to add a hover state/visited state to the links */
 a:visited{
     margin: auto;

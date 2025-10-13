@@ -142,6 +142,16 @@ h2 {
     transition-duration:0.3s;
 }
 
+a instagram{
+    height:24px;
+    width:24px;
+    margin: auto;
+    background-color: transparent;
+    text-align:center;
+    color: blanchedalmond;
+
+}
+
 @media (max-width: 768px) {
     .nav-menu{
         display:none;
