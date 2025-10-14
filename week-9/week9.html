@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<div class="box">
+    <title>week9</title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            border: 5px black solid;
+            background-color: lightblue;
+            animation-name: moving-box;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+
+        .another-box{
+            height: 200px;
+            width:200px;
+            border: 5px black solid;
+            background-color: lightcoral;
+            transition-property: width;
+        }
+
+        .another-box:hover{
+            width:500px;
+        }
+
+        @keyframes moving-box {
+            from {
+                left: 0px;
+                top: 0px;
+            }
+
+            50% {
+                left: 500px;
+                top: 0px;
+            }
+
+            to {
+                left: 0px;
+                top:0px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    <div class="another-box">
+</body>
+</html>
