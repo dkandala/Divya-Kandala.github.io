@@ -3,11 +3,11 @@ let triviaBtn = document.querySelector("#js-new-quote").addEventListener('click'
 let answerBtn = document.querySelector('#js-tweet').addEventListener('click', newAnswer);
 
 let current = {
-    question: "",
-    answer: "",
+    text: "",
+    book: "",
 }
 
-const endpoint = "https://trivia.cyberwisp.com/getrandomchristmasquestion";
+const endpoint = "https://bible-api.com/data/web/random";
 
 async function newTrivia() {
     // console.log("Success");
@@ -17,12 +17,16 @@ async function newTrivia() {
             throw Error(response.statusText)
         }
         const json = await response.json();
-        displayTrivia(json["question"]);
-        current.question = json["question"];
-        current.answer = json["answer"];
+        console.log(json);
+        current.text = json['random_verse']['text'];
+        current.book = json['random_verse']['book'];
+        displayTrivia(current.text);
+        console.log(current.text);
+        console.log(current.book);
+
      } catch (err) {
         console.log(err)
-        alert('Failed to get new trivia');
+        alert('Failed to get bible verse');
      }
 }
 
@@ -35,7 +39,7 @@ function displayTrivia(question) {
 
 function newAnswer() {
     const answerText = document.querySelector("#js-answer-text");
-    answerText.textContent = current.answer;
+    answerText.textContent = current.book;
 }
 
 newTrivia();
