@@ -80,8 +80,10 @@ html {
   }
   
   .new-quote {
-    background-color: #4A2B0F;
-    margin-bottom: 15px;
+    background-color: greenyellow;
+    color: black;
+    margin-bottom: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .new-quote:hover {
