@@ -1,13 +1,28 @@
-let triviaBtn = document.querySelector("#js-new-quote").addEventListener('click', newTrivia);
+const triviaBtn = document.querySelector("#js-new-quote");
+if (triviaBtn) triviaBtn.addEventListener('click', newTrivia);
 
-let answerBtn = document.querySelector('#js-tweet').addEventListener('click', newAnswer);
+const answerBtn = document.querySelector('#js-tweet');
+if (answerBtn) answerBtn.addEventListener('click', newAnswer);
+
+let quoteCount = 0;
+const saved = parseInt(localStorage.getItem('quoteCount'),10);
+if (!Number.isNaN(saved)) quoteCount = saved;
+
+updateQuoteCount();
 
 let current = {
     text: "",
     book: "",
 }
 
+function updateQuoteCount() {
+    const el = document.querySelector('#js-quote-count');
+    if (el) el.textContent = String(quoteCount);
+}
+
+
 const endpoint = "https://bible-api.com/data/web/random";
+
 
 async function newTrivia() {
     // console.log("Success");
@@ -23,6 +38,10 @@ async function newTrivia() {
         displayTrivia(current.text);
         console.log(current.text);
         console.log(current.book);
+
+        quoteCount += 1;
+        localStorage.setItem('quoteCount', quoteCount);
+        updateQuoteCount();
 
      } catch (err) {
         console.log(err)
@@ -41,5 +60,9 @@ function newAnswer() {
     const answerText = document.querySelector("#js-answer-text");
     answerText.textContent = current.book;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateQuoteCount();
+});
 
 newTrivia();

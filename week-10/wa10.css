@@ -12,8 +12,10 @@ html {
   
   body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #c9bd95;
+    background-color: coral;
   }
+
+
   
   .lll {
     text-align: center;
@@ -36,9 +38,10 @@ html {
   header {
     width: 100%;
     font-size: 30px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
     text-align: center;
     padding: 10px;
-    color: purple;
     border-bottom: 5px solid lightseagreen;
   }
   
@@ -56,6 +59,17 @@ html {
   .controls {
     width: 100%;
     padding: 20px 50px;
+  }
+
+  .quote-counter {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    border: 4px solid lightseagreen;
+    padding: 4px 4px;
+    
+
+    color: rgb(0, 40, 173)
   }
   
   .button {
@@ -75,21 +89,25 @@ html {
   .twitter {
     background-color: #1da1f2;
     text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .twitter:hover {
     background-color: #1e7fbb;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif
   }
   
   .new-quote {
     background-color: greenyellow;
     color: black;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .new-quote:hover {
-    background-color: #6d3b0e;
+    background-color: salmon;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .new-quote:disabled {
