@@ -3,12 +3,6 @@ const endpointBase = "https://openlibrary.org/search.json?author=";
 document.addEventListener('DOMContentLoaded', () => {
   const searchBtn = document.getElementById('search-button');
   if (searchBtn) searchBtn.addEventListener('click', searchBooks);
-
-  // optional: press Enter in input to search
-  const input = document.getElementById('search-input');
-  if (input) input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') searchBooks();
-  });
 });
 
 async function searchBooks() {
@@ -61,6 +55,22 @@ async function searchBooks() {
     resultsEl.innerHTML = `<p>Error fetching results: ${escapeHtml(err.message)}</p>`;
     console.error(err);
   }
+}
+
+function saveResultsToStorage(arr) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+  } catch (e) {
+    console.error('Save failed', e);
+  }
+}
+
+function clearSavedResults() {
+  localStorage.removeItem(STORAGE_KEY);
+  currentResults = [];
+  const resultsEl = document.getElementById('results');
+  if (resultsEl) resultsEl.innerHTML = '';
+  alert('Saved results cleared');
 }
 
 function escapeHtml(str = '') {
