@@ -57,20 +57,13 @@ async function searchBooks() {
   }
 }
 
-function saveResultsToStorage(arr) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-  } catch (e) {
-    console.error('Save failed', e);
-  }
+// Save favorites locally, give option to export
+function exportData() {
+  const favorites = localStorage.getItem('resultsData');
+  if (!favorites) {
+    alert('No results data to export.');
+  downloadAsJSON(favorites); // User gets their data
 }
-
-function clearSavedResults() {
-  localStorage.removeItem(STORAGE_KEY);
-  currentResults = [];
-  const resultsEl = document.getElementById('results');
-  if (resultsEl) resultsEl.innerHTML = '';
-  alert('Saved results cleared');
 }
 
 function escapeHtml(str = '') {

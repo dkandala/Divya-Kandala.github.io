@@ -45,3 +45,12 @@ h1{
     font-size:18px;
     color:indigo;
 }
+
+#clearBtn, #exportBtn{
+    background-color: indigo;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 10px;
+}
