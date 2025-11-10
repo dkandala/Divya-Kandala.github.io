@@ -55,6 +55,7 @@ h1{
     padding: 8px 16px;
     cursor: pointer;
     margin: 10px;
+    justify-content: center;
 }
 
 .grid{
@@ -71,3 +72,12 @@ h1{
     grid-template-rows: 1fr;
     grid-template-areas:none;}
 
+#privacy-policy{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    font-weight:bold;
+    background-color: lavenderblush;
+    color: darkmagenta;
+    text-align: center;
+    margin-top: 24px;
+}
