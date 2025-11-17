@@ -1,93 +1,136 @@
-const endpointBase = "https://openlibrary.org/search.json?author=";
+const API_BASE = 'https://openlibrary.org/search.json?author=';
 
 document.addEventListener('DOMContentLoaded', () => {
-  ['search-button', 'exportBtn', 'clearBtn'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (id === 'search-button') el.addEventListener('click', searchBooks);
-    if (id === 'exportBtn') el.addEventListener('click', exportData);
-    if (id === 'clearBtn') el.addEventListener('click', clearResults);
+  const searchBtn = document.getElementById('search-button');
+  const input = document.getElementById('search-input');
+  const clearBtn = document.getElementById('clearBtn');
+  const exportBtn = document.getElementById('exportBtn');
+
+  if (searchBtn) searchBtn.addEventListener('click', searchBooks);
+  if (input) input.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchBooks(); });
+
+  if (clearBtn) clearBtn.addEventListener('click', () => {
+    localStorage.removeItem('resultsData');
+    renderEmptyResults('Results cleared.');
   });
 
-  // if e is pressed for enter then search will start accessing results
-  const searchInput = document.getElementById('search-input');
-  if (searchInput) {
-    searchInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        searchBooks();
-      }
+  if (exportBtn) exportBtn.addEventListener('click', () => {
+    const raw = localStorage.getItem('resultsData');
+    if (!raw) return alert('No results to export.');
+    downloadAsJSON(raw, 'search-results.json');
+  });
+
+  const saved = localStorage.getItem('resultsData');
+  if (saved) renderSavedResults(JSON.parse(saved));
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const opened = navMenu.classList.toggle('show');
+      navToggle.setAttribute('aria-expanded', String(opened));
     });
   }
 });
 
 async function searchBooks() {
-  const input = document.getElementById('search-input');
+  const q = (document.getElementById('search-input') || {}).value || '';
   const resultsEl = document.getElementById('results');
-  if (!input || !resultsEl) return;
+  const listEl = document.getElementById('results-list');
+  if (!resultsEl || !listEl) return;
 
-  const query = input.value.trim();
-  if (!query) return showMessage(resultsEl, 'Please enter an author name.');
+  const query = q.trim();
+  if (!query) { resultsEl.innerHTML = '<p>Enter an author name.</p>'; listEl.innerHTML = ''; return; }
 
-  showMessage(resultsEl, 'Searching…');
+  resultsEl.innerHTML = '<p>Searching…</p>';
+  listEl.innerHTML = '';
 
   try {
-    const res = await fetch(endpointBase + encodeURIComponent(query));
-    if (!res.ok) throw new Error(res.statusText);
+    const resp = await fetch(API_BASE + encodeURIComponent(query));
+    if (!resp.ok) throw new Error(resp.statusText);
+    const data = await resp.json();
+    const docs = (data.docs || []).slice(0, 5);
+    if (docs.length === 0) { renderEmptyResults('No books found.'); return; }
 
-    const docs = (await res.json()).docs ?? [];
-    if (docs.length === 0) return showMessage(resultsEl, 'No books found for that author.');
+    const normalized = docs.map(d => ({
+      title: d.title || 'No title',
+      authors: (d.author_name || []).slice(0,3).join(', ') || 'Unknown author', // fallback
+      year: d.first_publish_year || '',
+      coverId: d.cover_i || null
+    }));
+    localStorage.setItem('resultsData', JSON.stringify(normalized));
 
-    const container = document.createElement('div');
-    container.className = 'results-list';
-
-    docs.slice(0, 20).forEach(doc => {
-      const item = document.createElement('div');
-      item.className = 'result-item';
-      item.innerHTML = `
-        <div class="meta">
-          <ul><li>${escapeHtml(doc.title ?? 'No title')}</li></ul>
-        </div>`;
-      container.appendChild(item);
-    });
-
-    resultsEl.innerHTML = '';
-    resultsEl.appendChild(container);
-    localStorage.setItem('resultsData', JSON.stringify(docs.slice(0, 20)));
+    renderResults(normalized);
   } catch (err) {
-    showMessage(resultsEl, `Error fetching results: ${escapeHtml(err.message)}`);
     console.error(err);
+    renderEmptyResults('Error fetching results: ' + (err.message || 'unknown'));
   }
 }
 
-function exportData() {
-  const results = localStorage.getItem('resultsData');
-  if (!results) return alert('No results data to export.');
-  downloadAsJSON(results, 'search-results.json');
+function renderResults(items) {
+    const resultsEl = document.getElementById('results');
+    const listEl = document.getElementById('results-list');
+    resultsEl.innerHTML = '';
+    listEl.innerHTML = '';
+
+    const grid = document.createElement('div');
+    grid.className = 'results-grid';
+
+    const frag = document.createDocumentFragment();
+    items.forEach(item => {
+        const coverUrl = item.coverId
+            ? `https://covers.openlibrary.org/b/id/${item.coverId}-M.jpg`
+            : 'https://via.placeholder.com/128x180?text=No+Cover'; 
+
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.innerHTML = `
+          <div class="cover">
+            <img src="${coverUrl}" alt="${escapeHtml(item.title)}"
+                 onerror="this.src='https://via.placeholder.com/128x180?text=No+Cover'">
+          </div>
+          <div class="meta">
+            <h4>${escapeHtml(item.title)}</h4>
+            <p>${escapeHtml(item.authors)} ${item.year ? '• ' + item.year : ''}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+
+        const li = document.createElement('li');
+        li.textContent = `${item.title} — ${item.authors}${item.year ? ' (' + item.year + ')' : ''}`;
+        frag.appendChild(li);
+    });
+
+    resultsEl.appendChild(grid);
+    listEl.appendChild(frag);
+}
+
+function renderEmptyResults(msg) {
+  const resultsEl = document.getElementById('results');
+  const listEl = document.getElementById('results-list');
+  if (resultsEl) resultsEl.innerHTML = `<p>${escapeHtml(msg)}</p>`;
+  if (listEl) listEl.innerHTML = '';
+}
+
+function renderSavedResults(items) {
+  if (!items || items.length === 0) return renderEmptyResults('No saved results.');
+  renderResults(items);
 }
 
 function downloadAsJSON(data, filename = 'data.json') {
-  const blob = new Blob([data], { type: 'application/json' });
+  const json = (typeof data === 'string') ? data : JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const a = Object.assign(document.createElement('a'), { href: url, download: filename });
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  alert('Results exported successfully!');
-}
-
-function clearResults() {
-  localStorage.removeItem('resultsData');
-  showMessage(document.getElementById('results'), 'Results cleared.');
-  alert('Results cleared successfully!');
-}
-
-function showMessage(el, msg) {
-  if (el) el.innerHTML = `<p>${msg}</p>`;
+  alert('Export started.');
 }
 
 function escapeHtml(str = '') {
-  return str.replace(/[&<>"']/g, s => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  }[s]));
+  return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
 }

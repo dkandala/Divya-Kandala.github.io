@@ -6,6 +6,12 @@
     background-color: lavenderblush; 
 }
 
+.search-bar{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #search-button{
     background-color: purple;
     color: white;
@@ -80,4 +86,113 @@ h1{
     color: darkmagenta;
     text-align: center;
     margin-top: 24px;
+}
+
+.main-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(90deg,#fff,#f3eaf6);
+    border-bottom: 2px solid #d6bde6;
+}
+
+.nav-brand{
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    color: indigo;
+    text-decoration: none;
+}
+
+.nav-toggle{
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+    padding: 6px;
+}
+
+.nav-toggle .bar{
+    display:block;
+    width: 22px;
+    height: 3px;
+    background: indigo;
+    border-radius: 2px;
+}
+
+.nav-menu{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a{
+    display: inline-block;
+    padding: 8px 12px;
+    color: white;
+    background: indigo;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus{
+    background: magenta;
+    outline: none;
+}
+
+/* mobile styling for search bar */
+@media (max-width: 768px){
+    .nav-toggle{
+        display: flex;
+        flex-direction: column;  
+        justify-content: center;
+        align-items: center;
+        gap: 6px;  
+        width: 24px;
+        height: 36px;
+        padding: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+.nav-toggle .hamburger{
+    display: block;
+    width: 28px;
+    height: 4px;
+    background-color: indigo;
+    border-radius: 3px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+    .nav-menu{
+        display: none;            
+        position: absolute;
+        top: 64px;
+        right: 12px;
+        background: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        flex-direction: column;
+        width: 200px;
+        padding: 0.5rem;
+        border-radius: 6px;
+    }
+
+    .nav-menu.show{
+        display: flex;
+    }
+
+    .nav-menu a{
+        color: indigo;
+        background: transparent;
+        padding: 10px;
+        border-radius: 4px;
+    }
 }
