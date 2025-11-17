@@ -53,8 +53,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #f3eaf6;
-  border-bottom: 2px solid #d6bde6;
+  background-color: lightblue;
+  border-bottom: 2px solid darkblue;
 }
 
 header section {
