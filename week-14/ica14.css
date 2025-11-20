@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+body {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+p {
+  --color: #000;
+  --shadow-stroke: 2px;
+  --shadow-stroke-gap: 3;
+  --shadow-rotate: -45deg;
+  --shadow-color: #3245;
+  
+  position: relative;
+  color: blue;
+  font-size: 200px;
+  text-align: center;
+  line-height: 180px;
+  font-family: "DM Serif Text", serif;
+  background: repeating-linear-gradient(
+      var(--shadow-rotate),
+      var(--shadow-color),
+      var(--shadow-color) var(--shadow-stroke),
+      transparent var(--shadow-stroke),
+      transparent calc(var(--shadow-stroke) * var(--shadow-stroke-gap))
+    );
+   
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 10px;
+}
+
+p::before {
+  content: "lined shadow";
+  position: absolute;
+  color: transparent;
+  background: var(--color);
+  -webkit-text-stroke: 10px;
+  left: -10px;
+  top: -10px;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
