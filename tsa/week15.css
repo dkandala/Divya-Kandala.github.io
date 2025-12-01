@@ -1,0 +1,304 @@
+.main-nav{
+    display:flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    color:slateblue;
+    position:relative;
+    padding:24px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: navy;
+  color: blanchedalmond;
+  text-align: center;
+  padding: 6px;
+  width:140px;
+  height:40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+/* wanted to add a hover state/visited state to the links */
+a:visited{
+    margin: auto;
+    background-color: transparent;
+    text-align:center;
+    color: blanchedalmond;
+}
+
+a:hover{
+    background-color: cornflowerblue;
+    color: blanchedalmond;
+}
+
+p {
+    font-family:'Courier New', Courier, monospace;
+    color:darkblue;
+    font-weight: bold;
+    
+}
+
+.button{
+            background-color: #63A46C;
+            border: none;
+            color: white; 
+            padding: 24px 24px;
+            text-align: center;
+            text-decoration: none;
+            text-decoration-color:#63A46C;
+            display: block;
+            size:16px;
+            margin-right:20px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic; 
+            }
+        .button:hover {
+            background-color: #A0405F; 
+            color:#2E170F;
+        }
+
+.text-sizes{
+    align-self: center;
+    justify-self: center;
+    width: 50%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+
+    padding: 32px;
+
+    font-family:'Courier New', Courier, monospace;
+}
+
+#small-text {
+    font-size: 12px; /* 0.75 rem */ 
+}
+
+#med-text {
+    font-size: 16px; /* 1 rem */
+}
+
+#large-text {
+    font-size: 24px; /* 1.5 rem */
+}
+
+
+h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: midnightblue;
+    font-weight: bold;
+    font-style:italic
+}
+.nav-menu{
+    display: flex;
+    gap: 0.8em;
+
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+    
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:600;
+    font-style: bold;
+}
+ .nav-menu li{
+    display: flex;
+    gap: 0.4em;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;  
+    list-style: center;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:600;
+    font-size:large;
+    font-style: bold;
+}
+
+.nav-brand {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 40px;
+    font-style: italic;
+    color:darkblue;
+}
+
+.nav-toggle{
+    display:none;
+    flex-direction:column;
+    height:56px;
+    padding:4px;
+    border-radius:4px;
+    border:4px solid darkblue;
+    background-color: skyblue;
+    transition-duration:0.3s;
+}
+
+a instagram{
+    height:24px;
+    width:24px;
+    margin: auto;
+    background-color: transparent;
+    text-align:center;
+    color: blanchedalmond;
+
+}
+
+@media (max-width: 768px) {
+    .nav-menu{
+        display:none;
+    }
+    .nav-toggle{
+        display:flex;
+        position:absolute;
+        top:24px;
+        right:24px;
+    }
+
+    .hamburger{
+        background-color: darkblue;
+        height:8px;
+        width:36px;
+        border-radius:18px;
+        margin:4px; 
+    }  
+}
+
+@media (max-width: 900px){
+    .main-nav{
+        padding: 36px 48px;
+        font-size: 1.125rem;
+    }
+    .nav-menu{
+        flex-direction: row;
+        justify-content:flex-end;
+        gap: 2rem;
+    }
+    .nav-toggle{
+        display:none;
+    }
+
+    .text-sizes{
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        padding:48px;
+    }
+
+    .main-footer{
+        display: flex;
+        justify-content: space-between;
+        padding: 36px 48px;
+    }
+}
+
+.text-sizes button{
+    background-color: blanchedalmond;
+    border:navy;
+    color:navy;
+    padding: 12px;
+    margin:8px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.text-sizes button:hover{
+    background-color: navy;
+    color:blanchedalmond;
+}
+
+.privacy-statement{
+    text-align:center;
+}
+
+.nav-menu.show{
+    display:flex;
+    position:absolute;
+    top:72px;
+    right:4px;
+    height:200px;
+    width:160px;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border-radius:12px;
+}
+
+/* class example for event page */
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        'event1 event2 event3';
+    margin: 24px;
+}
+
+.event {
+    background-color:cornflowerblue;
+    margin: 16px;
+    padding: 16px;
+
+}
+.event h2 {
+    text-align: center;
+}
+.event p {
+    text-align: center;
+}
+
+
+.main-footer {
+    background-color:cornflowerblue;
+}
+
+.main-footer h2 {
+    flex: 1 1 0;
+}
+
+.main-footer button {
+    height: 40px;
+    margin: 20px;
+    flex: 1 1 0; 
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    justify-content: center;
+    padding-top: 3px;
+}
+
+.event-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+
+    
+.event-box {
+  background-color: cornflowerblue;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+
+.events-blurb{
+    font-family:'Courier New', Courier, monospace;
+    font-size:large;
+    color:darkblue;
+    font-weight: bold;
+    text-align:center;
+}
+
