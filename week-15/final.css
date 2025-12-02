@@ -88,6 +88,13 @@ a:hover{
     margin-bottom: 32px;
 }
 
+.responsive-img {
+  width: 100%; 
+  height: auto;    
+  display: block;  
+}
+
+
 .team-intro{
     text-align: center;
     font-family: "cafe-romantique", sans-serif;
@@ -126,6 +133,7 @@ a:hover{
     border: 4px dotted #381D2A;
     border-radius: 8px;
     padding: 16px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
     text-align: center;
     font-size: 20px;
     color: #381D2A;
