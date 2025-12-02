@@ -36,7 +36,7 @@ body{
     list-style: none;
     font-size: 24px;
     text-align: center;
-    font-family: "reiher-headline", sans-serif;
+    font-family: "adriane", serif;
     font-weight: 700;
     font-style: italic;
 }
@@ -205,7 +205,7 @@ a:hover{
 
 .events-blurb{
     font-family:'fabulosa', sans-serif;
-    color:#3E6990;
+    color:#381D2A;
     font-weight:300px;
     text-align:center;
 }
@@ -256,6 +256,18 @@ a:hover{
     font-weight: 500;
     font-style: normal;
     color: #E9E3B4;
+    padding: 16px 16px 16px 16px;
+    margin: 24px;
+    border-radius: 8px;
+    border: #381D2A dotted 4px;
+}
+
+/* contact us section styles */
+.contact-section{
+    background-color:#a28894;
+    font-weight: 500;
+    font-style: normal;
+    color: #381D2A;
     padding: 16px 16px 16px 16px;
     margin: 24px;
     border-radius: 8px;
