@@ -151,7 +151,7 @@ a:hover{
 
 .member-profile ul {
     list-style-type: none;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 #team-mem{
@@ -178,6 +178,46 @@ a:hover{
     font-family: "adriane", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+/* Event Grid Styles */
+.event-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+    
+.event-box {
+  background-color: #E9E3B4;
+  border: #3E6990 dashed 4px;
+  text-align: center;
+  display: grid;
+  font-family: "adriane", serif;
+  font-weight:700px;
+  font-style: normal;
+  color:#381D2A;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.events-blurb{
+    font-family:'fabulosa', sans-serif;
+    color:#3E6990;
+    font-weight:300px;
+    text-align:center;
+}
+
+.event-filters{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px;
+    background-color: #AABD8C;
+    border-radius: 12px;
+    border:#381D2A dotted 4px;
 }
 
 /* Homepage Styles */
@@ -369,6 +409,24 @@ button:hover {
         margin: 8px 0;            
     }
 }
+
+@media (max-width: 1024px) {
+  .event-gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .event-gallery-grid {
+    grid-template-columns: 1fr; /* phones */
+  }
+  
+  .event-box {
+    font-size: 0.9rem; /* slightly smaller text */
+    padding: 12px;
+  }
+}
+
 
 
 

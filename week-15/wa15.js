@@ -9,6 +9,8 @@ const med_txt = document.querySelector('#med-text');
 const large_txt = document.querySelector('#large-text');
 const clear_txt = document.querySelector('#clear-preferences');
 
+const filter_buttons = document.querySelectorAll('.filter-button');
+
 let category = ""
 let color_changed = false
 var menu_shown = false;
@@ -39,6 +41,17 @@ function changeBgCol(event){
   }
 }
 
+function filterEvents(e) {
+  const category = e.target.dataset.filter;
+  eventBoxes.forEach(box => {
+    const match = category === "All-Events" || box.dataset.category === category;
+    // hide the boxes if they don't match
+    box.style.display = match ? "block" : "none";
+  });
+}
+filter_buttons.forEach(button => {
+  button.addEventListener('click', filterEvents);
+}); 
 
 function handleKeyFilter(e) {
   // if u is pressed then show upcoming events 
@@ -55,6 +68,7 @@ function handleKeyFilter(e) {
     box.style.display = match ? "block" : "none";
   });
 }
+
 
 
 document.addEventListener("keydown", handleKeyFilter);
