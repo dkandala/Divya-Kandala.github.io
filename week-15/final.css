@@ -273,10 +273,6 @@ a:hover{
     border-radius: 8px;
     border: #381D2A dotted 4px;
     text-align: center;
-    font-family: "adriane", serif;
-    font-weight: 400;
-    font-style: normal;;
-    padding: 4px 4px 4px 4px;
 }
 
 .contact-section h2 {
@@ -284,6 +280,14 @@ a:hover{
     font-family: "fabulosa", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.contact-section p {
+    text-align: center;
+    font-family: "adriane", serif;
+    font-weight: 400;
+    font-style: normal;;
+    padding: 4px 4px 4px 4px;
 }
 
 
