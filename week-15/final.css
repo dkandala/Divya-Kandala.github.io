@@ -282,6 +282,14 @@ a:hover{
     font-style: normal;
 }
 
+.contact-section p {
+    text-align: center;
+    font-family: "adriane", serif;
+    font-weight: 400;
+    font-style: normal;;
+    padding: 4px 4px 4px 4px;
+}
+
 
 
 /* Text Size Buttons */
