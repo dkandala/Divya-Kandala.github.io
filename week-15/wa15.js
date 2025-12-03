@@ -1,6 +1,4 @@
 
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
 const event1 = document.querySelector('.event1');
 const eventBoxes = document.querySelectorAll(".event-box");
 
@@ -11,8 +9,11 @@ const clear_txt = document.querySelector('#clear-preferences');
 
 const filter_buttons = document.querySelectorAll('.filter-button');
 
-let category = ""
-let color_changed = false
+
+
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
 var menu_shown = false;
 
 function showMenu(){
@@ -27,6 +28,11 @@ function showMenu(){
         navToggle.setAttribute("aria-expanded", "false");
     }
 }
+
+navToggle.addEventListener('click', showMenu);
+
+let category = ""
+let color_changed = false
 
 function changeBgCol(event){
   if (event.key == "c") {
